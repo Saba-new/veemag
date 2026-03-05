@@ -1,9 +1,9 @@
 /* ========================================
-   CONTACT SECTION
+   MODERN CONTACT SECTION
    ======================================== */
 .contact-section {
-    padding: 100px 24px;
-    background: #f5f2ec;
+    padding: var(--section-padding) 2rem;
+    background: var(--surface);
     animation: fadeInSection 0.8s ease-out 0.3s both;
 }
 
@@ -18,50 +18,51 @@
 .contact-content {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
-    gap: 40px;
+    gap: 32px;
     align-items: start;
 }
 
 /* ========================================
-   FORM CARD
+   MODERN FORM CARD
    ======================================== */
 .form-card {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 40px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 48px 40px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
     animation: slideUpFade 0.8s ease-out 0.5s both;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(34, 197, 94, 0.15);
 }
 
 .form-card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
+    font-size: 1.75rem;
     font-weight: 700;
-    color: #0e0d0b;
+    color: var(--navy);
     margin-bottom: 12px;
+    letter-spacing: -0.5px;
 }
 
 .form-card-description {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    color: rgba(14, 13, 11, 0.65);
+    font-size: 1rem;
+    color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 32px;
 }
 
 /* ========================================
-   FORM STYLES
+   MODERN FORM STYLES
    ======================================== */
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
 }
 
 .form-group {
@@ -71,32 +72,29 @@
 }
 
 .form-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
+    font-size: 0.875rem;
     font-weight: 600;
-    color: #0e0d0b;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    color: var(--navy);
+    letter-spacing: 0.3px;
 }
 
 .form-input,
 .form-textarea {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
+    font-size: 1rem;
     padding: 14px 16px;
-    border: 1px solid #d4cfc4;
-    border-radius: 8px;
-    background: #fafaf8;
-    color: #0e0d0b;
-    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    color: var(--navy);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-input:focus,
 .form-textarea:focus {
     outline: none;
-    border-color: #0e0d0b;
-    background: #ffffff;
-    box-shadow: 0 0 0 3px rgba(14, 13, 11, 0.05);
+    border-color: var(--primary-green);
+    background: var(--surface);
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
 }
 
 .form-textarea {
@@ -106,7 +104,8 @@
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-    color: rgba(14, 13, 11, 0.4);
+    color: var(--text-secondary);
+    opacity: 0.6;
 }
 
 /* ========================================
@@ -114,68 +113,68 @@
    ======================================== */
 .form-status {
     padding: 14px 18px;
-    border-radius: 8px;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
+    border-radius: var(--radius-md);
+    font-size: 0.9375rem;
     line-height: 1.5;
 }
 
 .form-status.success {
-    background: #d4f4dd;
-    color: #0d5f23;
-    border: 1px solid #a8e6c1;
+    background: rgba(34, 197, 94, 0.1);
+    color: #15803d;
+    border: 1px solid rgba(34, 197, 94, 0.3);
 }
 
 .form-status.error {
-    background: #ffd4d4;
-    color: #8b0000;
-    border: 1px solid #ffb3b3;
+    background: rgba(239, 68, 68, 0.1);
+    color: #991b1b;
+    border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
 /* ========================================
-   SUBMIT BUTTON
+   MODERN SUBMIT BUTTON
    ======================================== */
 .form-submit-btn {
-    font-family: 'DM Mono', monospace;
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 600;
     padding: 16px 32px;
-    background: #0e0d0b;
-    color: #f5f2ec;
+    background: var(--primary-green);
+    color: var(--surface);
     border: none;
-    border-radius: 8px;
+    border-radius: var(--radius-full);
     cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.3px;
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
 }
 
 .form-submit-btn:hover:not(:disabled) {
-    background: #1a1916;
+    background: #1ea752;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(14, 13, 11, 0.3);
+    box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
 }
 
 .form-submit-btn:disabled {
-    background: rgba(14, 13, 11, 0.4);
+    background: var(--text-secondary);
     cursor: not-allowed;
+    opacity: 0.5;
 }
 
 /* ========================================
-   INFO CARDS
+   MODERN INFO CARDS
    ======================================== */
 .contact-info-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
 }
 
 .info-card {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 32px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     animation: slideUpFade 0.8s ease-out both;
 }
 
@@ -189,29 +188,31 @@
 
 .info-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(34, 197, 94, 0.15);
 }
 
 .info-card-highlight {
-    background: linear-gradient(135deg, #1a3a5c 0%, #2d4a6e 100%);
-    color: #f5f2ec;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--charcoal) 100%);
+    color: var(--surface);
+    border-color: transparent;
 }
 
 .info-card-icon {
     width: 48px;
     height: 48px;
-    border-radius: 12px;
-    background: rgba(14, 13, 11, 0.08);
+    border-radius: var(--radius-md);
+    background: rgba(34, 197, 94, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    color: #0e0d0b;
+    color: var(--primary-green);
 }
 
 .info-card-highlight .info-card-icon {
-    background: rgba(245, 242, 236, 0.15);
-    color: #f5f2ec;
+    background: rgba(34, 197, 94, 0.15);
+    color: var(--primary-green);
 }
 
 .info-card-icon svg {
@@ -220,27 +221,26 @@
 }
 
 .info-card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 700;
-    color: #0e0d0b;
+    color: var(--navy);
     margin-bottom: 12px;
+    letter-spacing: -0.3px;
 }
 
 .info-card-highlight .info-card-title {
-    color: #f5f2ec;
+    color: var(--surface);
 }
 
 .info-card-text {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
+    font-size: 0.9375rem;
     line-height: 1.7;
-    color: rgba(14, 13, 11, 0.7);
+    color: var(--text-secondary);
     margin: 0;
 }
 
 .info-card-highlight .info-card-text {
-    color: rgba(245, 242, 236, 0.85);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 /* ========================================
@@ -249,7 +249,7 @@
 @media (max-width: 1024px) {
     .contact-content {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: 28px;
     }
 
     .contact-info-wrapper {
@@ -260,19 +260,19 @@
 
 @media (max-width: 768px) {
     .contact-section {
-        padding: 80px 20px;
+        padding: 80px 1.5rem;
     }
 
     .form-card {
-        padding: 32px 24px;
+        padding: 36px 28px;
     }
 
     .form-card-title {
-        font-size: 24px;
+        font-size: 1.5rem;
     }
 
     .info-card {
-        padding: 24px;
+        padding: 28px 24px;
     }
 
     .contact-info-wrapper {
@@ -282,22 +282,61 @@
 
 @media (max-width: 480px) {
     .contact-section {
-        padding: 60px 16px;
+        padding: 60px 1rem;
     }
 
     .form-card {
-        padding: 24px 20px;
+        padding: 28px 20px;
     }
 
     .form-card-title {
-        font-size: 22px;
+        font-size: 1.375rem;
     }
 
     .form-card-description {
-        font-size: 14px;
+        font-size: 0.9375rem;
     }
 
     .info-card {
+        padding: 24px 20px;
+    }
+
+    .info-card-title {
+        font-size: 1.125rem;
+    }
+
+    .info-card-text {
+        font-size: 0.875rem;
+    }
+
+    .form-submit-btn {
+        width: 100%;
+    }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeInSection {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
         padding: 20px;
     }
 

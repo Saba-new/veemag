@@ -1,10 +1,13 @@
+/* ========================================
+   MODERN AUTH PAGE
+   ======================================== */
 .auth-page {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem 1rem;
-  background: linear-gradient(135deg, #f5f2ec 0%, #e8f3ed 100%);
+  background: linear-gradient(180deg, var(--background) 0%, var(--surface) 100%);
 }
 
 .auth-container {
@@ -12,12 +15,16 @@
   max-width: 480px;
 }
 
+/* ========================================
+   MODERN AUTH CARD
+   ======================================== */
 .auth-card {
-  background: white;
-  border-radius: 24px;
+  background: var(--surface);
+  border-radius: var(--radius-xl);
   padding: 3rem 2.5rem;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-  border: 1px solid #d4cfc4;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(10px);
 }
 
 .auth-header {
@@ -26,19 +33,21 @@
 }
 
 .auth-header h1 {
-  font-family: 'Playfair Display', serif;
   font-size: 2rem;
-  font-weight: 900;
-  color: #1a2e2a;
+  font-weight: 700;
+  color: var(--navy);
   margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
 }
 
 .auth-header p {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
-  color: #7a7469;
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
 }
 
+/* ========================================
+   MODERN FORM
+   ======================================== */
 .auth-form {
   display: flex;
   flex-direction: column;
@@ -52,73 +61,78 @@
 }
 
 .form-group label {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  color: #2d6e4e;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  color: var(--navy);
+  letter-spacing: 0.3px;
 }
 
 .form-group input {
   padding: 0.875rem 1rem;
-  border: 2px solid #d4cfc4;
-  border-radius: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
   font-size: 1rem;
-  font-family: 'Inter', sans-serif;
-  color: #1a2e2a;
-  background: white;
-  transition: all 0.3s ease;
+  color: var(--navy);
+  background: var(--surface);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-group input:focus {
   outline: none;
-  border-color: #2d6e4e;
-  box-shadow: 0 0 0 3px rgba(45, 110, 78, 0.1);
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
 }
 
 .form-group input::placeholder {
-  color: #a8a095;
+  color: var(--text-secondary);
+  opacity: 0.6;
 }
 
+/* ========================================
+   STATUS MESSAGES
+   ======================================== */
 .status-message {
   padding: 1rem;
-  border-radius: 12px;
-  font-size: 0.9rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
   text-align: center;
   font-weight: 500;
   animation: slideDown 0.3s ease;
 }
 
 .status-message.success {
-  background: #d1fae5;
-  color: #065f46;
-  border: 1px solid #6ee7b7;
+  background: rgba(34, 197, 94, 0.1);
+  color: #15803d;
+  border: 1px solid rgba(34, 197, 94, 0.3);
 }
 
 .status-message.error {
-  background: #fee2e2;
+  background: rgba(239, 68, 68, 0.1);
   color: #991b1b;
-  border: 1px solid #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
+/* ========================================
+   MODERN AUTH BUTTON
+   ======================================== */
 .auth-button {
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, #2d6e4e 0%, #1a4731 100%);
-  color: white;
+  background: var(--primary-green);
+  color: var(--surface);
   border: none;
-  border-radius: 12px;
+  border-radius: var(--radius-full);
   font-size: 1rem;
   font-weight: 600;
-  font-family: 'Inter', sans-serif;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   margin-top: 0.5rem;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
 }
 
 .auth-button:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(45, 110, 78, 0.3);
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
+  background: #1ea752;
 }
 
 .auth-button:active:not(:disabled) {
@@ -126,27 +140,31 @@
 }
 
 .auth-button:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
+  background: var(--text-secondary);
 }
 
+/* ========================================
+   FOOTER
+   ======================================== */
 .auth-footer {
   text-align: center;
   margin-top: 2rem;
   padding-top: 2rem;
-  border-top: 1px solid #d4cfc4;
+  border-top: 1px solid var(--border);
 }
 
 .auth-footer p {
-  font-size: 0.9rem;
-  color: #7a7469;
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
   margin: 0;
 }
 
 .toggle-button {
   background: none;
   border: none;
-  color: #2d6e4e;
+  color: var(--primary-green);
   font-weight: 600;
   cursor: pointer;
   text-decoration: underline;
@@ -156,9 +174,12 @@
 }
 
 .toggle-button:hover {
-  color: #1a4731;
+  color: #1ea752;
 }
 
+/* ========================================
+   ANIMATIONS
+   ======================================== */
 @keyframes slideDown {
   from {
     opacity: 0;
@@ -170,7 +191,9 @@
   }
 }
 
-/* Responsive */
+/* ========================================
+   RESPONSIVE
+   ======================================== */
 @media (max-width: 640px) {
   .auth-card {
     padding: 2rem 1.5rem;
