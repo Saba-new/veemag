@@ -71,13 +71,16 @@ const Navbar = () => {
             <NavLink to="/" className="nav-link" end>HOME</NavLink>
           </li>
           <li className="nav-item">
-            <a href="#about" className="nav-link">ABOUT</a>
+            <NavLink to="/about" className="nav-link">ABOUT</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/research" className="nav-link">RESEARCH</NavLink>
           </li>
           <li className="nav-item">
             <NavLink to="/projects" className="nav-link">PROJECTS</NavLink>
           </li>
           <li className="nav-item">
-            <a href="#technologies" className="nav-link">TECHNOLOGIES</a>
+            <NavLink to="/careers" className="nav-link">CAREERS</NavLink>
           </li>
           <li className="nav-item">
             <NavLink to="/contact" className="nav-link">CONTACT</NavLink>
@@ -93,8 +96,7 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <NavLink to="/auth" className="btn-secondary">Sign In</NavLink>
-              <NavLink to="/contact" className="btn-primary">Get Started</NavLink>
+              <NavLink to="/auth" className="btn-primary">Login</NavLink>
             </>
           )}
         </div>
@@ -115,9 +117,10 @@ const Navbar = () => {
       <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
         <ul className="mobile-nav-links">
           <li><NavLink to="/" className="mobile-nav-link" onClick={closeMobileMenu} end>Home</NavLink></li>
-          <li><a href="#about" className="mobile-nav-link" onClick={closeMobileMenu}>About</a></li>
+          <li><NavLink to="/about" className="mobile-nav-link" onClick={closeMobileMenu}>About</NavLink></li>
+          <li><NavLink to="/research" className="mobile-nav-link" onClick={closeMobileMenu}>Research</NavLink></li>
           <li><NavLink to="/projects" className="mobile-nav-link" onClick={closeMobileMenu}>Projects</NavLink></li>
-          <li><a href="#technologies" className="mobile-nav-link" onClick={closeMobileMenu}>Technologies</a></li>
+          <li><NavLink to="/careers" className="mobile-nav-link" onClick={closeMobileMenu}>Careers</NavLink></li>
           <li><NavLink to="/contact" className="mobile-nav-link" onClick={closeMobileMenu}>Contact</NavLink></li>
         </ul>
         <div className="mobile-nav-actions">
@@ -128,8 +131,7 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <NavLink to="/auth" className="btn-secondary-mobile" onClick={closeMobileMenu}>Sign In</NavLink>
-              <NavLink to="/contact" className="btn-primary-mobile" onClick={closeMobileMenu}>Get Started</NavLink>
+              <NavLink to="/auth" className="btn-primary-mobile" onClick={closeMobileMenu}>Login</NavLink>
             </>
           )}
         </div>

@@ -1,0 +1,85 @@
+/* ========================================
+   CAREERS PAGE
+   ======================================== */
+.careers-page {
+    padding-top: var(--nav-height);
+    min-height: 100vh;
+}
+
+.careers-page-header {
+    background: linear-gradient(180deg, var(--background) 0%, var(--surface) 100%);
+    padding: 100px 2rem 80px;
+    text-align: center;
+}
+
+.careers-page-header-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.careers-page-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 24px;
+    letter-spacing: -1.5px;
+}
+
+.careers-page-description {
+    font-size: clamp(1rem, 2vw, 1.1875rem);
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   CONTENT SECTION
+   ======================================== */
+.careers-content-section {
+    padding: var(--section-padding) 2rem;
+    background: var(--surface);
+}
+
+.careers-content-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.careers-content-container h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+}
+
+.careers-content-container p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+    .careers-page-header {
+        padding: 80px 1.5rem 60px;
+    }
+
+    .careers-content-section {
+        padding: 80px 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .careers-page-header {
+        padding: 60px 1rem 50px;
+    }
+
+    .careers-content-section {
+        padding: 60px 1rem;
+    }
+}
