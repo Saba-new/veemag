@@ -1,0 +1,362 @@
+/* ========================================
+   RESEARCH SHOWCASE SECTION - ACADEMIC STYLE
+   ======================================== */
+.research-showcase {
+    background: #f5f2ec;
+    color: #0e0d0b;
+    font-family: 'DM Mono', monospace;
+    min-height: 100vh;
+    padding: 64px 48px 80px;
+    position: relative;
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Subtle grain texture */
+.research-showcase::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ========================================
+   MAIN HEADER
+   ======================================== */
+.research-header-main {
+    max-width: 1360px;
+    margin: 0 auto 72px;
+    border-bottom: 1px solid rgba(14,13,11,0.1);
+    padding-bottom: 40px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    animation: slideUp 0.7s ease-out 0.2s both;
+}
+
+.header-left .eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #7a7469;
+    margin-bottom: 12px;
+}
+
+.research-header-main h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: #0e0d0b;
+}
+
+.header-right {
+    text-align: right;
+    font-size: 11px;
+    color: #7a7469;
+    line-height: 1.8;
+}
+
+/* ========================================
+   SECTION DIVIDERS
+   ======================================== */
+.section-label {
+    max-width: 1360px;
+    margin: 0 auto 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+    animation: slideUp 0.6s ease-out 0.4s both;
+}
+
+.section-label span {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #7a7469;
+    white-space: nowrap;
+}
+
+.section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(14,13,11,0.1);
+}
+
+/* ========================================
+   GRID
+   ======================================== */
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 24px;
+    max-width: 1360px;
+    margin: 0 auto 64px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ========================================
+   RESEARCH CARD
+   ======================================== */
+.research-card {
+    background: #ffffff;
+    border: 1px solid rgba(14,13,11,0.12);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(14,13,11,0.06),
+                0 1px 3px rgba(14,13,11,0.04);
+    animation: cardSlideUp 0.7s ease-out both;
+}
+
+.research-card:nth-child(1) { animation-delay: 0.5s; }
+.research-card:nth-child(2) { animation-delay: 0.65s; }
+.research-card:nth-child(3) { animation-delay: 0.8s; }
+.research-card:nth-child(4) { animation-delay: 0.95s; }
+.research-card:nth-child(5) { animation-delay: 1.1s; }
+.research-card:nth-child(6) { animation-delay: 1.25s; }
+.research-card:nth-child(7) { animation-delay: 1.4s; }
+.research-card:nth-child(8) { animation-delay: 1.55s; }
+
+.research-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(14,13,11,0.12),
+                0 4px 12px rgba(14,13,11,0.08);
+    border-color: rgba(14,13,11,0.2);
+}
+
+.research-card:hover canvas {
+    filter: brightness(1.05) saturate(1.1);
+    transform: scale(1.02);
+}
+
+/* ========================================
+   CANVAS WRAP
+   ======================================== */
+.canvas-wrap {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid rgba(14,13,11,0.08);
+}
+
+.canvas-wrap canvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid currentColor;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+}
+
+.research-card:hover .badge {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.accuracy-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 4px 12px;
+    background: rgba(0,0,0,0.85);
+    color: #fff;
+    border-radius: 3px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+}
+
+.research-card:hover .accuracy-badge {
+    transform: scale(1.05);
+    background: rgba(0,0,0,0.95);
+}
+
+/* ========================================
+   CARD BODY
+   ======================================== */
+.card-body {
+    padding: 24px 26px 28px;
+    background: #ffffff;
+}
+
+.card-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+    color: #0e0d0b;
+    transition: color 0.2s ease;
+}
+
+.research-card:hover .card-body h2 {
+    color: #1a3a5c;
+}
+
+.meta-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 12px;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.meta-item .label {
+    font-size: 7px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #7a7469;
+}
+
+.meta-item .val {
+    font-size: 10px;
+    color: #0e0d0b;
+    display: flex;
+    align-items: center;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.desc {
+    font-size: 0.73rem;
+    line-height: 1.65;
+    color: #7a7469;
+    border-top: 1px solid rgba(14,13,11,0.1);
+    padding-top: 12px;
+    margin-top: 2px;
+}
+
+.desc strong {
+    color: #0e0d0b;
+    font-size: 0.7rem;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+    .research-showcase {
+        padding: 40px 24px 60px;
+    }
+
+    .research-header-main {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        margin-bottom: 48px;
+    }
+
+    .header-right {
+        text-align: left;
+    }
+
+    .research-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .canvas-wrap {
+        height: 200px;
+    }
+
+    .card-body {
+        padding: 20px 22px 24px;
+    }
+
+    .card-body h2 {
+        font-size: 1rem;
+    }
+
+    .desc {
+        font-size: 0.7rem;
+    }
+
+    .research-card:hover {
+        transform: translateY(-4px);
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .research-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1025px) {
+    .research-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}

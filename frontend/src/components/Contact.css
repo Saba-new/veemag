@@ -1,0 +1,334 @@
+/* ========================================
+   CONTACT SECTION
+   ======================================== */
+.contact-section {
+    padding: 100px 24px;
+    background: #f5f2ec;
+    animation: fadeInSection 0.8s ease-out 0.3s both;
+}
+
+.contact-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   CONTACT CONTENT LAYOUT
+   ======================================== */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* ========================================
+   FORM CARD
+   ======================================== */
+.form-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    animation: slideUpFade 0.8s ease-out 0.5s both;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.form-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #0e0d0b;
+    margin-bottom: 12px;
+}
+
+.form-card-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: rgba(14, 13, 11, 0.65);
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+/* ========================================
+   FORM STYLES
+   ======================================== */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: #0e0d0b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-input,
+.form-textarea {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    padding: 14px 16px;
+    border: 1px solid #d4cfc4;
+    border-radius: 8px;
+    background: #fafaf8;
+    color: #0e0d0b;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #0e0d0b;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(14, 13, 11, 0.05);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: rgba(14, 13, 11, 0.4);
+}
+
+/* ========================================
+   FORM STATUS
+   ======================================== */
+.form-status {
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.form-status.success {
+    background: #d4f4dd;
+    color: #0d5f23;
+    border: 1px solid #a8e6c1;
+}
+
+.form-status.error {
+    background: #ffd4d4;
+    color: #8b0000;
+    border: 1px solid #ffb3b3;
+}
+
+/* ========================================
+   SUBMIT BUTTON
+   ======================================== */
+.form-submit-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 16px 32px;
+    background: #0e0d0b;
+    color: #f5f2ec;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-submit-btn:hover:not(:disabled) {
+    background: #1a1916;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(14, 13, 11, 0.3);
+}
+
+.form-submit-btn:disabled {
+    background: rgba(14, 13, 11, 0.4);
+    cursor: not-allowed;
+}
+
+/* ========================================
+   INFO CARDS
+   ======================================== */
+.contact-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.info-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    animation: slideUpFade 0.8s ease-out both;
+}
+
+.info-card:nth-child(1) {
+    animation-delay: 0.7s;
+}
+
+.info-card:nth-child(2) {
+    animation-delay: 0.9s;
+}
+
+.info-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.info-card-highlight {
+    background: linear-gradient(135deg, #1a3a5c 0%, #2d4a6e 100%);
+    color: #f5f2ec;
+}
+
+.info-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(14, 13, 11, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: #0e0d0b;
+}
+
+.info-card-highlight .info-card-icon {
+    background: rgba(245, 242, 236, 0.15);
+    color: #f5f2ec;
+}
+
+.info-card-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.info-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0e0d0b;
+    margin-bottom: 12px;
+}
+
+.info-card-highlight .info-card-title {
+    color: #f5f2ec;
+}
+
+.info-card-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(14, 13, 11, 0.7);
+    margin: 0;
+}
+
+.info-card-highlight .info-card-text {
+    color: rgba(245, 242, 236, 0.85);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 1024px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .contact-info-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 80px 20px;
+    }
+
+    .form-card {
+        padding: 32px 24px;
+    }
+
+    .form-card-title {
+        font-size: 24px;
+    }
+
+    .info-card {
+        padding: 24px;
+    }
+
+    .contact-info-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-section {
+        padding: 60px 16px;
+    }
+
+    .form-card {
+        padding: 24px 20px;
+    }
+
+    .form-card-title {
+        font-size: 22px;
+    }
+
+    .form-card-description {
+        font-size: 14px;
+    }
+
+    .info-card {
+        padding: 20px;
+    }
+
+    .info-card-title {
+        font-size: 18px;
+    }
+
+    .info-card-text {
+        font-size: 13px;
+    }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeInSection {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

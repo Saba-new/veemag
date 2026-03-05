@@ -1,0 +1,20 @@
+{
+  "name": "veemag-monorepo",
+  "version": "1.0.0",
+  "description": "VEEMAG R&D Ventures - Monorepo for frontend and backend",
+  "scripts": {
+    "install:all": "cd frontend && npm install && cd ../backend && npm install",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "setup:db": "cd backend && npm run setup-db",
+    "build:frontend": "cd frontend && npm run build"
+  },
+  "keywords": [
+    "veemag",
+    "ai",
+    "research",
+    "monorepo"
+  ],
+  "author": "VEEMAG R&D Ventures",
+  "license": "MIT"
+}

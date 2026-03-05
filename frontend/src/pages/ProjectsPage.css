@@ -1,0 +1,93 @@
+/* ========================================
+   PROJECTS PAGE
+   ======================================== */
+.projects-page {
+    padding-top: var(--nav-height);
+    min-height: 100vh;
+}
+
+.page-header {
+    background: linear-gradient(135deg, #d4e7e0 0%, #c8dfd5 100%);
+    padding: 100px 24px 80px;
+    text-align: center;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.page-header-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 64px;
+    font-weight: 700;
+    color: #1a2e2a;
+    margin-bottom: 24px;
+    letter-spacing: -1.5px;
+    font-family: 'Playfair Display', serif;
+    animation: slideUp 0.7s ease-out 0.2s both;
+}
+
+.page-description {
+    font-size: 19px;
+    color: rgba(26, 46, 42, 0.7);
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+    animation: slideUp 0.7s ease-out 0.4s both;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+    .page-header {
+        padding: 80px 20px 60px;
+    }
+
+    .page-title {
+        font-size: 44px;
+    }
+
+    .page-description {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header {
+        padding: 60px 16px 50px;
+    }
+
+    .page-title {
+        font-size: 36px;
+    }
+
+    .page-description {
+        font-size: 16px;
+    }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
