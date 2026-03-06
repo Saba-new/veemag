@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import useScrollAnimation from '../hooks/useScrollAnimation'
 import './AboutSection.css'
 
@@ -48,9 +49,9 @@ const AboutSection = () => {
               With smart automation and top-notch security, it's the perfect solution for teams looking to work smarter.
             </p>
 
-            <a href="/contact" className="card-button">
+            <Link to="/contact" className="card-button">
               TRY IT NOW
-            </a>
+            </Link>
           </div>
         </div>
 
