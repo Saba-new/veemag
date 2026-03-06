@@ -1,185 +1,315 @@
 /* ========================================
-   RESEARCH AREAS SECTION
+   RESEARCH PORTFOLIO SECTION
    ======================================== */
 .projects-section {
-    padding: 80px 24px;
-    background: #f5f2ec;
-    border-top: 1px solid #d4cfc4;
-    animation: fadeInSection 0.8s ease-out 0.3s both;
+    padding: 100px 40px;
+    background: linear-gradient(180deg, #F8FAFC 0%, #E2E8F0 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.projects-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(
+        ellipse 50% 40% at 50% 0%,
+        rgba(34, 197, 94, 0.08) 0%,
+        transparent 70%
+    );
+    pointer-events: none;
 }
 
 .projects-container {
-    max-width: 1280px;
+    max-width: 1400px;
     margin: 0 auto;
-}
-
-/* ========================================
-   SECTION HEADER
-   ======================================== */
-.research-areas-header {
-    text-align: center;
-    margin-bottom: 60px;
-    padding-bottom: 24px;
-}
-
-.research-areas-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 56px;
-    font-weight: 700;
-    color: #0e0d0b;
-    letter-spacing: -1px;
-    margin: 0 0 20px 0;
-}
-
-.research-areas-subtitle {
-    font-family: 'Inter', sans-serif;
-    font-size: 18px;
-    line-height: 1.6;
-    color: rgba(14, 13, 11, 0.6);
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-/* ========================================
-   RESEARCH AREAS GRID
-   ======================================== */
-.research-areas-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 48px;
-    margin-top: 48px;
-}
-
-.research-column {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    animation: slideUpFade 0.8s ease-out both;
-}
-
-.research-column:nth-child(1) {
-    animation-delay: 0.5s;
-}
-
-.research-column:nth-child(2) {
-    animation-delay: 0.7s;
-}
-
-.research-column:nth-child(3) {
-    animation-delay: 0.9s;
-}
-
-.research-category {
-    font-family: 'DM Mono', monospace;
-    font-size: 14px;
-    font-weight: 600;
-    color: #5a6c7d;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin: 0 0 8px 0;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #d4cfc4;
-}
-
-.research-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.research-item {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #0e0d0b;
-    padding-left: 20px;
     position: relative;
 }
 
-.research-item::before {
-    content: '•';
+/* ========================================
+   PORTFOLIO HEADER
+   ======================================== */
+.projects-header {
+    text-align: center;
+    margin-bottom: 72px;
+}
+
+.projects-label {
+    font-family: 'Space Mono', 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: #22C55E;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.projects-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #0F172A 30%, rgba(15, 23, 42, 0.5));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+}
+
+/* ========================================
+   PORTFOLIO GRID
+   ======================================== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   PROJECT CARDS
+   ======================================== */
+.project-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 
+        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    border-color: rgba(34, 197, 94, 0.5);
+    box-shadow: 
+        0 24px 48px rgba(0, 0, 0, 0.12),
+        0 0 0 1px rgba(34, 197, 94, 0.2),
+        0 0 60px rgba(34, 197, 94, 0.1);
+}
+
+.project-card:hover .project-canvas {
+    filter: brightness(1.05);
+}
+
+/* ========================================
+   CARD CANVAS
+   ======================================== */
+.project-img-wrap {
+    width: 100%;
+    height: 220px;
+    position: rergba(248, 250, 252, 0.5);
+    overflow: hidden;
+    background: #000000;
+}
+
+.project-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: filter 0.3s ease;
+    object-fit: cover;
+}
+
+.project-tag {
     position: absolute;
-    left: 0;
-    color: #0e0d0b;
+    top: 14px;
+    right: 14px;
+    font-family: 'Space Mono', 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     font-weight: 600;
+    transition: transform 0.2s ease;
+}
+
+.project-card:hover .project-tag {
+    transform: scale(1.05);
+}
+
+/* ========================================
+   CARD CONTENT
+   ======================================== */
+.project-card-body {
+    padding: 24px;
+}
+
+.project-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px 0;
+    color: var(--navy);
+    line-height: 1.3;
+}
+
+.project-description {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+    font-family: 'Space Mono', 'DM Mono', monospace;
+}
+
+.project-description .highlight {
+    color: rgba(15, 23, 42, 0.85);
+    font-weight: 500;
 }
 
 /* ========================================
    RESPONSIVE DESIGN
    ======================================== */
+@media (max-width: 1200px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+    }
+}
+
 @media (max-width: 1024px) {
-    .research-areas-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
+    .projects-section {
+        padding: 80px 32px;
     }
 
-    .research-column {
-        padding-bottom: 24px;
-        border-bottom: 1px solid #d4cfc4;
+    .projects-header {
+        margin-bottom: 56px;
     }
 
-    .research-column:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
+    .projects-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .projects-grid {
+        gap: 20px;
+    }
+
+    .project-img-wrap {
+        height: 200px;
+    }
+
+    .project-card-body {
+        padding: 22px;
     }
 }
 
 @media (max-width: 768px) {
     .projects-section {
-        padding: 60px 20px;
+        padding: 60px 24px;
     }
 
-    .research-areas-header {
-        margin-bottom: 40px;
+    .projects-header {
+        margin-bottom: 48px;
     }
 
-    .research-areas-title {
-        font-size: 42px;
+    .projects-label {
+        font-size: 10px;
+        margin-bottom: 12px;
     }
 
-    .research-areas-subtitle {
-        font-size: 16px;
+    .projects-title {
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
     }
 
-    .research-areas-grid {
-        gap: 32px;
-        margin-top: 32px;
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
-    .research-item {
-        font-size: 15px;
+    .project-img-wrap {
+        height: 200px;
+    }
+
+    .project-tag {
+        font-size: 8px;
+        padding: 5px 10px;
+        top: 12px;
+        right: 12px;
+    }
+
+    .project-title {
+        font-size: 1.125rem;
+    }
+
+    .project-description {
+        font-size: 0.8125rem;
     }
 }
 
 @media (max-width: 480px) {
     .projects-section {
-        padding: 48px 16px;
+        padding: 48px 20px;
     }
 
-    .research-areas-title {
-        font-size: 32px;
-        letter-spacing: -0.5px;
+    .projects-header {
+        margin-bottom: 40px;
     }
 
-    .research-areas-subtitle {
-        font-size: 15px;
+    .projects-label {
+        font-size: 9px;
+        letter-spacing: 0.25em;
     }
 
-    .research-category {
-        font-size: 12px;
+    .projects-title {
+        font-size: clamp(1.5rem, 7vw, 2rem);
+        letter-spacing: -0.02em;
     }
 
-    .research-item {
-        font-size: 14px;
+    .projects-grid {
+        gap: 18px;
+    }
+
+    .project-img-wrap {
+        height: 180px;
+    }
+
+    .project-card-body {
+        padding: 20px;
+    }
+
+    .project-title {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .project-description {
+        font-size: 0.75rem;
+        line-height: 1.5;
+    }
+
+    .project-card:hover {
+        transform: translateY(-2px);
     }
 }
 
 /* ========================================
    ANIMATIONS
    ======================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @keyframes fadeInSection {
     from {
         opacity: 0;

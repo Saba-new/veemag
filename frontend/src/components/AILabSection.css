@@ -1,0 +1,504 @@
+/* ========================================
+   AI LAB SECTION - DARK GRADIENT THEME
+   ======================================== */
+.ailab-section {
+    padding: var(--section-padding) 2rem;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+    min-height: 80vh;
+}
+
+.ailab-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 20% 40%, rgba(34, 197, 94, 0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 60%, rgba(16, 185, 129, 0.02) 0%, transparent 55%);
+    pointer-events: none;
+}
+
+.ailab-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    padding: 0 2rem;
+}
+
+/* ========================================
+   MAIN CARD WRAPPER
+   ======================================== */
+.ailab-card {
+    background: linear-gradient(135deg, #052d2d 0%, #0a2f2f 30%, #0d1e2d 60%, #08332d 100%);
+    border-radius: 32px;
+    padding: 80px 60px;
+    box-shadow: 
+        0 60px 120px rgba(0, 0, 0, 0.25),
+        0 35px 70px rgba(0, 0, 0, 0.18),
+        0 20px 40px rgba(0, 0, 0, 0.15),
+        0 10px 25px rgba(0, 0, 0, 0.12),
+        0 0 0 1px rgba(0, 0, 0, 0.05),
+        0 0 100px rgba(34, 197, 94, 0.15);
+    transform: translateY(-30px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    overflow: visible;
+}
+
+.ailab-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 25% 50%, rgba(34, 197, 94, 0.15) 0%, transparent 55%),
+                radial-gradient(ellipse at 75% 50%, rgba(16, 185, 129, 0.12) 0%, transparent 60%);
+    border-radius: 32px;
+    pointer-events: none;
+    animation: glow-pulse 8s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.85;
+    }
+}
+
+.ailab-card:hover {
+    transform: translateY(-40px);
+    box-shadow: 
+        0 70px 150px rgba(0, 0, 0, 0.3),
+        0 45px 85px rgba(0, 0, 0, 0.22),
+        0 25px 50px rgba(0, 0, 0, 0.18),
+        0 12px 30px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(0, 0, 0, 0.08),
+        0 0 140px rgba(34, 197, 94, 0.25);
+}
+
+/* ========================================
+   LEFT CONTENT
+   ======================================== */
+.ailab-content {
+    color: #ffffff;
+}
+
+.ailab-title {
+    font-size: clamp(2.25rem, 4.5vw, 3rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+    line-height: 1.1;
+}
+
+.ailab-subtitle {
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* ========================================
+   FEATURES LIST
+   ======================================== */
+.ailab-features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.ailab-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+}
+
+.feature-icon-check {
+    width: 28px;
+    height: 28px;
+    background: rgba(34, 197, 94, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-green);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.ailab-feature span {
+    font-size: 1.0625rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+/* ========================================
+   CTA BUTTON
+   ======================================== */
+.ailab-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: var(--primary-green);
+    color: var(--surface);
+    border: none;
+    border-radius: var(--radius-full);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(34, 197, 94, 0.3);
+}
+
+.ailab-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(34, 197, 94, 0.4);
+    background: #1ea752;
+}
+
+.ailab-cta svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ========================================
+   RIGHT MOCKUP
+   ======================================== */
+.ailab-mockup {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mockup-card {
+    background: #f8fafc;
+    border-radius: 20px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 8px 16px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    max-width: 100%;
+    width: 100%;
+}
+
+.mockup-card:hover {
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.15),
+        0 10px 20px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   MOCKUP HEADER
+   ======================================== */
+.mockup-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, var(--background) 0%, var(--surface) 100%);
+    border-bottom: 1px solid var(--border);
+}
+
+.mockup-logo {
+    width: 36px;
+    height: 36px;
+    background: var(--primary-green);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--surface);
+}
+
+.mockup-title {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--navy);
+    flex: 1;
+}
+
+.mockup-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.mockup-btn {
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-secondary);
+}
+
+.mockup-btn:hover {
+    background: var(--background);
+    border-color: var(--primary-green);
+    color: var(--primary-green);
+}
+
+/* ========================================
+   MOCKUP CONTENT
+   ======================================== */
+.mockup-content {
+    padding: 24px;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: var(--surface);
+}
+
+.mockup-message {
+    padding: 16px 20px;
+    border-radius: var(--radius-lg);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+}
+
+.user-message {
+    background: var(--background);
+    color: var(--navy);
+    align-self: flex-end;
+    max-width: 80%;
+    border: 1px solid var(--border);
+}
+
+.mockup-loading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: rgba(34, 197, 94, 0.05);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    align-self: flex-start;
+}
+
+.loading-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-green);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.ai-message {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(34, 197, 94, 0.03) 100%);
+    color: var(--navy);
+    align-self: flex-start;
+    max-width: 90%;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.ai-response {
+    font-weight: 500;
+}
+
+/* ========================================
+   IMPACT GRID
+   ======================================== */
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.impact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 12px;
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.impact-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+    border-color: var(--primary-green);
+}
+
+.impact-icon {
+    font-size: 1.75rem;
+}
+
+.impact-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-align: center;
+}
+
+/* ========================================
+   MOCKUP FOOTER
+   ======================================== */
+.mockup-footer {
+    padding: 20px 24px;
+    background: linear-gradient(135deg, var(--background) 0%, var(--surface) 100%);
+    border-top: 1px solid var(--border);
+}
+
+.ask-anything-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 14px 24px;
+    background: var(--navy);
+    color: var(--surface);
+    border: none;
+    border-radius: var(--radius-full);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ask-anything-btn:hover {
+    background: var(--charcoal);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.3);
+}
+
+.ask-anything-btn svg:first-child {
+    color: var(--primary-green);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 1024px) {
+    .ailab-card {
+        gap: 60px;
+        padding: 60px 50px;
+    }
+
+    .ailab-title {
+        font-size: 2.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .ailab-section {
+        padding: 80px 1.5rem;
+    }
+
+    .ailab-container {
+        padding: 0 1rem;
+    }
+
+    .ailab-card {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 50px 30px;
+        border-radius: 24px;
+    }
+
+    .ailab-content {
+        text-align: left;
+    }
+
+    .ailab-mockup {
+        order: -1;
+    }
+
+    .impact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+    .user-message,
+    .ai-message {
+        max-width: 100%;
+    }
+
+@media (max-width: 480px) {
+    .ailab-section {
+        padding: 60px 1rem;
+    }
+
+    .ailab-features {
+        gap: 16px;
+    }
+
+    .ailab-feature span {
+        font-size: 0.9375rem;
+    }
+
+    .mockup-header {
+        padding: 16px 20px;
+    }
+
+    .mockup-content {
+        padding: 20px;
+        min-height: 280px;
+    }
+
+    .mockup-footer {
+        padding: 16px 20px;
+    }
+
+    .impact-item {
+        padding: 12px 10px;
+    }
+
+    .impact-icon {
+        font-size: 1.5rem;
+    }
+
+    .ailab-card {
+        padding: 40px 24px;
+        border-radius: 20px;
+        transform: translateY(-20px);
+    }
+
+    .ailab-card:hover {
+        transform: translateY(-25px);
+    }
+}

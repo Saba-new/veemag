@@ -8,6 +8,7 @@ dotenv.config();
 // Then require routes (so they can access process.env)
 const contactRoutes = require('./routes/contact');
 const authRoutes = require('./routes/auth');
+const careersRoutes = require('./routes/careers');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use('/api/contact', contactRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/careers', careersRoutes);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {

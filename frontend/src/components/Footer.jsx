@@ -14,7 +14,7 @@ const Footer = () => {
             <span className="footer-logo-text">VEEMAG</span>
           </div>
           <p className="footer-description">
-            VEEMAG R&D Ventures, where our pioneering spirit knows no bounds. 
+            VEEMAG, where our pioneering spirit knows no bounds. 
             Here, we're not just shaping the future we're sculpting it with the 
             transformative power of Artificial Intelligence.
           </p>
@@ -50,10 +50,11 @@ const Footer = () => {
           <h3 className="footer-heading">Pages</h3>
           <ul className="footer-list">
             <li><Link to="/">HOME</Link></li>
-            <li><Link to="/#about">About</Link></li>
-            <li><Link to="/projects">Project</Link></li>
-            <li><Link to="/#technologies">Technologies</Link></li>
-            <li><Link to="/contact">contact</Link></li>
+            <li><Link to="/about">ABOUT</Link></li>
+            <li><Link to="/research">RESEARCH</Link></li>
+            <li><Link to="/projects">PROJECT</Link></li>
+            
+            <li><Link to="/contact">CONTACT</Link></li>
           </ul>
         </div>
 

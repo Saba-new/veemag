@@ -1,0 +1,191 @@
+/* ========================================
+   TRUSTED BY SECTION
+   ======================================== */
+.trusted-by-section {
+    padding: 80px 0;
+    background: var(--background);
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.trusted-by-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.trusted-by-title {
+    text-align: center;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 48px;
+    letter-spacing: -0.5px;
+}
+
+/* ========================================
+   SCROLLING TRACK
+   ======================================== */
+.trusted-by-track-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+    );
+}
+
+.trusted-by-track {
+    display: flex;
+    gap: 60px;
+    animation: scroll-left 40s linear infinite;
+    width: max-content;
+}
+
+.trusted-by-track:hover {
+    animation-play-state: paused;
+}
+
+/* ========================================
+   COMPANY ITEMS
+   ======================================== */
+.trusted-by-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 48px;
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    min-width: 220px;
+    height: 100px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.trusted-by-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border-color: var(--primary-green);
+}
+
+.company-logo {
+    max-height: 50px;
+    max-width: 160px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.6);
+    transition: all 0.3s ease;
+}
+
+.trusted-by-item:hover .company-logo {
+    filter: grayscale(0%) opacity(1);
+}
+
+.company-name-fallback {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    white-space: nowrap;
+    letter-spacing: -0.2px;
+    display: none;
+}
+
+.company-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    white-space: nowrap;
+    letter-spacing: -0.2px;
+}
+
+/* ========================================
+   SCROLL ANIMATION
+   ======================================== */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+    .trusted-by-section {
+        padding: 60px 0;
+    }
+
+    .trusted-by-title {
+        margin-bottom: 36px;
+    }
+
+    .trusted-by-track {
+        gap: 40px;
+        animation-duration: 30s;
+    }
+
+    .trusted-by-item {
+        padding: 20px 32px;
+        min-width: 180px;
+        height: 90px;
+    }
+
+    .company-logo {
+        max-height: 45px;
+        max-width: 140px;
+    }
+
+    .company-name-fallback,
+    .company-name {
+        font-size: 0.9375rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .trusted-by-section {
+        padding: 50px 0;
+    }
+
+    .trusted-by-container {
+        padding: 0 1rem;
+    }
+
+    .trusted-by-track {
+        gap: 30px;
+        animation-duration: 25s;
+    }
+
+    .trusted-by-item {
+        padding: 16px 24px;
+        min-width: 150px;
+            height: 80px;
+        }
+
+        .company-logo {
+        max-height: 40px;
+        max-width: 120px;
+    }
+
+    .company-name-fallback,
+    .company-name {
+        font-size: 0.875rem;
+    }
+}

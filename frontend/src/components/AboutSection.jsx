@@ -48,7 +48,7 @@ const AboutSection = () => {
               With smart automation and top-notch security, it's the perfect solution for teams looking to work smarter.
             </p>
 
-            <a href="#getstarted" className="card-button">
+            <a href="/contact" className="card-button">
               TRY IT NOW
             </a>
           </div>
@@ -59,11 +59,11 @@ const AboutSection = () => {
           <div className="card-content">
             <div className="welcome-badge">Our Mission</div>
             <h2 className="card-title-large">
-              Welcome to VEEMAG R&D Ventures
+              Welcome to VEEMAG
             </h2>
             
             <p className="card-text">
-              Step into the forefront of innovation and sustainability at VEEMAG R&D Ventures, where our pioneering spirit knows no bounds. Here, we're not just shaping the future; we're sculpting it with the transformative power of Artificial Intelligence (AI).
+              Step into the forefront of innovation and sustainability at VEEMAG, where our pioneering spirit knows no bounds. Here, we're not just shaping the future; we're sculpting it with the transformative power of Artificial Intelligence (AI).
             </p>
             
             <p className="card-text">

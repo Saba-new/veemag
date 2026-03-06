@@ -98,7 +98,7 @@ const Auth = () => {
         <div className="auth-card">
           <div className="auth-header">
             <h1>{isLogin ? 'Welcome Back' : 'Create Account'}</h1>
-            <p>{isLogin ? 'Sign in to your account' : 'Join VEEMAG R&D Ventures'}</p>
+            <p>{isLogin ? 'Sign in to your account' : 'Join VEEMAG'}</p>
           </div>
 
           <form onSubmit={handleSubmit} className="auth-form">

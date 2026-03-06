@@ -97,7 +97,7 @@ router.post('/submit', async (req, res) => {
                     </div>
                   </div>
                   <div class="footer">
-                    <p>This email was sent from the VEEMAG R&D Ventures contact form.</p>
+                    <p>This email was sent from the VEEMAG contact form.</p>
                     <p>Submission ID: ${result.insertId}</p>
                   </div>
                 </div>

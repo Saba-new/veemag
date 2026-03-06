@@ -1,4 +1,4 @@
-// Canvas drawing functions for AI research projects
+// Canvas drawing functions for AI research projects - Dark Theme
 
 function roundRect(ctx, x, y, w, h, r) {
   ctx.beginPath();
@@ -9,372 +9,6 @@ function roundRect(ctx, x, y, w, h, r) {
   ctx.lineTo(x,y+r); ctx.arcTo(x,y,x+r,y,r);
   ctx.closePath();
 }
-
-export function drawTsunami(ctx, w, h) {
-  // Deep ocean bg
-  const bg = ctx.createLinearGradient(0,0,0,h);
-  bg.addColorStop(0,'#0a1f35'); bg.addColorStop(1,'#061428');
-  ctx.fillStyle=bg; ctx.fillRect(0,0,w,h);
-
-  // Ocean depth layers
-  for(let i=0;i<4;i++){
-    const y=h*(0.4+i*0.15);
-    ctx.fillStyle=`rgba(26,58,92,${0.15+i*0.05})`;
-    ctx.fillRect(0,y,w,h-y);
-  }
-
-  // Seismic wave rings from epicenter
-  ctx.save(); ctx.translate(w*0.3,h*0.65);
-  for(let i=1;i<=6;i++){
-    const r=i*28;
-    ctx.beginPath(); ctx.ellipse(0,0,r,r*0.35,0,0,Math.PI*2);
-    ctx.strokeStyle=`rgba(100,180,255,${0.5/i})`;
-    ctx.lineWidth=1.5; ctx.stroke();
-  }
-  // Epicenter
-  ctx.beginPath(); ctx.arc(0,0,5,0,Math.PI*2);
-  ctx.fillStyle='#ff4f6b'; ctx.fill();
-  ctx.restore();
-
-  // Tsunami wave profile
-  ctx.beginPath();
-  for(let x=0;x<w;x++){
-    const wave = 28*Math.exp(-Math.pow((x/w-0.6),2)*8)*Math.sin((x/w)*18-3);
-    const base = 10*Math.sin((x/w)*6);
-    ctx.lineTo(x, h*0.42 - wave - base);
-  }
-  ctx.lineTo(w,h); ctx.lineTo(0,h); ctx.closePath();
-  const wg=ctx.createLinearGradient(0,h*0.2,0,h);
-  wg.addColorStop(0,'rgba(30,120,200,0.9)'); wg.addColorStop(1,'rgba(10,50,100,0.6)');
-  ctx.fillStyle=wg; ctx.fill();
-
-  // Wave crest highlight
-  ctx.beginPath();
-  for(let x=0;x<w;x++){
-    const wave=28*Math.exp(-Math.pow((x/w-0.6),2)*8)*Math.sin((x/w)*18-3);
-    const base=10*Math.sin((x/w)*6);
-    ctx.lineTo(x, h*0.42 - wave - base);
-  }
-  ctx.strokeStyle='rgba(150,220,255,0.7)'; ctx.lineWidth=2; ctx.stroke();
-
-  // Coastline
-  ctx.fillStyle='rgba(200,170,120,0.6)';
-  ctx.fillRect(w*0.88,0,w*0.12,h);
-
-  // Data overlay
-  ctx.font='8px DM Mono,monospace';
-  ctx.fillStyle='rgba(100,180,255,0.6)';
-  ctx.fillText('EPICENTER: 7.8M  ·  DEPTH: 32km', 12, h-12);
-}
-
-export function drawDepression(ctx, w, h) {
-  const bg=ctx.createLinearGradient(0,0,w,h);
-  bg.addColorStop(0,'#1a0a2e'); bg.addColorStop(1,'#0d0618');
-  ctx.fillStyle=bg; ctx.fillRect(0,0,w,h);
-
-  // Brain neural network
-  const nodes=[];
-  const rand=(min,max)=>Math.random()*(max-min)+min;
-  for(let i=0;i<28;i++){
-    nodes.push({x:rand(w*0.1,w*0.9),y:rand(h*0.1,h*0.9),r:rand(2,5),active:Math.random()>0.55});
-  }
-  // Connections
-  nodes.forEach((a,i)=>{
-    nodes.slice(i+1).forEach(b=>{
-      const d=Math.hypot(a.x-b.x,a.y-b.y);
-      if(d<90){
-        ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
-        const risk=a.active&&b.active;
-        ctx.strokeStyle=risk?'rgba(180,100,255,0.35)':'rgba(120,60,200,0.1)';
-        ctx.lineWidth=risk?1:0.5; ctx.stroke();
-      }
-    });
-  });
-  // Nodes
-  nodes.forEach(n=>{
-    ctx.beginPath(); ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
-    ctx.fillStyle=n.active?'rgba(180,100,255,0.9)':'rgba(100,60,160,0.4)';
-    ctx.fill();
-    if(n.active){
-      ctx.beginPath(); ctx.arc(n.x,n.y,n.r+4,0,Math.PI*2);
-      ctx.strokeStyle='rgba(180,100,255,0.2)'; ctx.lineWidth=1; ctx.stroke();
-    }
-  });
-
-  // Social media text stream
-  const texts=['feeling low...','can\'t cope','hopeless','reach out','support','detect'];
-  ctx.font='8px DM Mono,monospace';
-  texts.forEach((t,i)=>{
-    const sentiment=i<3;
-    ctx.fillStyle=sentiment?'rgba(255,100,100,0.45)':'rgba(100,255,180,0.45)';
-    ctx.fillText(t, w*0.05+i%3*(w*0.3), h*0.82+Math.floor(i/3)*14);
-  });
-
-  ctx.font='8px DM Mono,monospace';
-  ctx.fillStyle='rgba(180,100,255,0.4)';
-  ctx.fillText('NLP  ·  BEHAVIORAL CUES  ·  SOCIAL SIGNALS', 10, h-10);
-}
-
-export function drawCyber(ctx, w, h) {
-  const bg=ctx.createLinearGradient(0,0,w,h);
-  bg.addColorStop(0,'#0a0503'); bg.addColorStop(1,'#100804');
-  ctx.fillStyle=bg; ctx.fillRect(0,0,w,h);
-
-  // Matrix rain
-  ctx.font='9px DM Mono,monospace';
-  const chars='01AFFE404DEADBEEF'.split('');
-  for(let c=0;c<18;c++){
-    const x=c*(w/18);
-    const n=Math.floor(Math.random()*8)+3;
-    for(let r=0;r<n;r++){
-      const alpha=1-r/n;
-      ctx.fillStyle=`rgba(194,75,42,${alpha*0.6})`;
-      ctx.fillText(chars[Math.floor(Math.random()*chars.length)],x,r*22+10);
-    }
-  }
-
-  // Network graph
-  const hosts=[
-    {x:w*0.2,y:h*0.4,threat:false},{x:w*0.5,y:h*0.3,threat:true},
-    {x:w*0.75,y:h*0.5,threat:false},{x:w*0.35,y:h*0.65,threat:true},
-    {x:w*0.6,y:h*0.7,threat:false},{x:w*0.85,y:h*0.25,threat:true},
-  ];
-  const links=[[0,1],[1,2],[0,3],[3,4],[1,5],[2,5]];
-  links.forEach(([a,b])=>{
-    ctx.beginPath(); ctx.moveTo(hosts[a].x,hosts[a].y); ctx.lineTo(hosts[b].x,hosts[b].y);
-    const threat=hosts[a].threat||hosts[b].threat;
-    ctx.strokeStyle=threat?'rgba(255,79,60,0.5)':'rgba(200,120,60,0.2)';
-    ctx.setLineDash(threat?[4,3]:[]); ctx.lineWidth=1; ctx.stroke(); ctx.setLineDash([]);
-  });
-  hosts.forEach(n=>{
-    ctx.beginPath(); ctx.arc(n.x,n.y,n.threat?8:6,0,Math.PI*2);
-    ctx.fillStyle=n.threat?'rgba(255,79,60,0.8)':'rgba(200,120,60,0.4)';
-    ctx.fill();
-    if(n.threat){
-      ctx.beginPath(); ctx.arc(n.x,n.y,14,0,Math.PI*2);
-      ctx.strokeStyle='rgba(255,79,60,0.3)'; ctx.lineWidth=1; ctx.stroke();
-    }
-  });
-
-  ctx.font='8px DM Mono,monospace';
-  ctx.fillStyle='rgba(194,75,42,0.45)';
-  ctx.fillText('ANOMALY DETECT  ·  TRAFFIC ANALYSIS', 10, h-10);
-}
-
-export function drawEnv(ctx, w, h) {
-  const bg=ctx.createLinearGradient(0,0,w,h);
-  bg.addColorStop(0,'#061209'); bg.addColorStop(1,'#091a0c');
-  ctx.fillStyle=bg; ctx.fillRect(0,0,w,h);
-
-  // Satellite grid
-  ctx.strokeStyle='rgba(45,110,78,0.12)';
-  ctx.lineWidth=0.5;
-  for(let x=0;x<w;x+=18){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke();}
-  for(let y=0;y<h;y+=18){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
-
-  // Terrain heatmap patches
-  const patches=[
-    {x:w*0.1,y:h*0.15,r:50,col:'rgba(45,110,78,0.5)',label:'FOREST'},
-    {x:w*0.45,y:h*0.3,r:35,col:'rgba(194,75,42,0.4)',label:'DEFOREST'},
-    {x:w*0.7,y:h*0.55,r:42,col:'rgba(26,120,180,0.5)',label:'WATER'},
-    {x:w*0.25,y:h*0.65,r:28,col:'rgba(194,138,26,0.4)',label:'ARID'},
-    {x:w*0.75,y:h*0.2,r:22,col:'rgba(45,110,78,0.35)',label:'BIODIV'},
-  ];
-  patches.forEach(p=>{
-    const g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r);
-    g.addColorStop(0,p.col); g.addColorStop(1,'transparent');
-    ctx.fillStyle=g; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
-    ctx.font='7px DM Mono,monospace'; ctx.fillStyle='rgba(255,255,255,0.4)';
-    ctx.fillText(p.label,p.x-20,p.y+3);
-  });
-
-  // Satellite path
-  ctx.beginPath();
-  ctx.moveTo(0,h*0.1); ctx.bezierCurveTo(w*0.3,h*0.4,w*0.6,h*0.1,w,h*0.5);
-  ctx.strokeStyle='rgba(100,220,150,0.5)'; ctx.setLineDash([6,4]); ctx.lineWidth=1.5; ctx.stroke(); ctx.setLineDash([]);
-
-  // Satellite icon
-  ctx.save(); ctx.translate(w*0.42,h*0.22);
-  ctx.fillStyle='rgba(200,255,220,0.8)';
-  ctx.fillRect(-4,-4,8,8);
-  ctx.fillRect(-12,-2,8,4); ctx.fillRect(4,-2,8,4); // solar panels
-  ctx.restore();
-
-  ctx.font='8px DM Mono,monospace'; ctx.fillStyle='rgba(45,110,78,0.55)';
-  ctx.fillText('SATELLITE  ·  AIR QUALITY  ·  BIODIVERSITY', 10, h-10);
-}
-
-export function drawTsunamiPub(ctx, w, h) {
-  const bg=ctx.createLinearGradient(0,0,w,h);
-  bg.addColorStop(0,'#061420'); bg.addColorStop(1,'#091c2e');
-  ctx.fillStyle=bg; ctx.fillRect(0,0,w,h);
-
-  // Accuracy gauge
-  ctx.save(); ctx.translate(w*0.25,h*0.5);
-  const pct=0.9989;
-  // Track
-  ctx.beginPath(); ctx.arc(0,0,55,Math.PI*0.75,Math.PI*2.25);
-  ctx.strokeStyle='rgba(26,58,92,0.4)'; ctx.lineWidth=8; ctx.stroke();
-  // Fill
-  ctx.beginPath(); ctx.arc(0,0,55,Math.PI*0.75,Math.PI*0.75+pct*Math.PI*1.5);
-  ctx.strokeStyle='#4da8ff'; ctx.lineWidth=8; ctx.lineCap='round'; ctx.stroke();
-  // Percent label
-  ctx.fillStyle='#4da8ff'; ctx.font='bold 14px Playfair Display,serif';
-  ctx.textAlign='center'; ctx.fillText('99.89%',0,6);
-  ctx.fillStyle='rgba(150,180,220,0.5)'; ctx.font='7px DM Mono,monospace';
-  ctx.fillText('ACCURACY',0,20); ctx.textAlign='left';
-  ctx.restore();
-
-  // Wave data lines
-  for(let i=0;i<4;i++){
-    const y=h*(0.25+i*0.17);
-    ctx.beginPath();
-    for(let x=0;x<w;x+=2){
-      const val=Math.sin(x*0.04+i)*12+Math.sin(x*0.015)*8;
-      x===0?ctx.moveTo(w*0.48+x,y+val):ctx.lineTo(w*0.48+x,y+val);
-    }
-    ctx.strokeStyle=`rgba(77,168,255,${0.15+i*0.12})`; ctx.lineWidth=1; ctx.stroke();
-  }
-
-  ctx.font='8px DM Mono,monospace'; ctx.fillStyle='rgba(77,168,255,0.4)';
-  ctx.fillText('PREDICTION LEAD TIME  ·  COASTAL SAFETY', 12, h-12);
-}
-
-export function drawMentalPub(ctx, w, h) {
-  const bg=ctx.createLinearGradient(0,0,w,h);
-  bg.addColorStop(0,'#120820'); bg.addColorStop(1,'#0e051a');
-  ctx.fillStyle=bg; ctx.fillRect(0,0,w,h);
-
-  // Multi-class output bars
-  const classes=[
-    {label:'Stress',val:0.99,col:'rgba(180,100,255,0.8)'},
-    {label:'Anxiety',val:0.97,col:'rgba(150,80,230,0.8)'},
-    {label:'Panic',val:0.99,col:'rgba(220,80,200,0.8)'},
-    {label:'Neutral',val:0.995,col:'rgba(80,180,220,0.7)'},
-  ];
-  classes.forEach((c,i)=>{
-    const y=h*(0.2+i*0.18);
-    const bw=(w*0.55)*c.val;
-    // Track
-    ctx.fillStyle='rgba(255,255,255,0.04)';
-    ctx.fillRect(w*0.38,y-6,w*0.55,12);
-    // Bar
-    const g=ctx.createLinearGradient(w*0.38,0,w*0.38+bw,0);
-    g.addColorStop(0,c.col); g.addColorStop(1,c.col.replace('0.8','0.4').replace('0.7','0.35'));
-    ctx.fillStyle=g; ctx.fillRect(w*0.38,y-6,bw,12);
-    // Label
-    ctx.font='8px DM Mono,monospace'; ctx.fillStyle='rgba(200,160,255,0.6)';
-    ctx.fillText(c.label, w*0.04, y+4);
-    ctx.fillStyle='rgba(200,160,255,0.9)';
-    ctx.fillText(Math.round(c.val*100)+'%', w*0.38+bw+6, y+4);
-  });
-
-  // Gauge ring
-  ctx.save(); ctx.translate(w*0.2,h*0.55);
-  ctx.beginPath(); ctx.arc(0,0,40,0,Math.PI*2);
-  ctx.strokeStyle='rgba(180,100,255,0.1)'; ctx.lineWidth=6; ctx.stroke();
-  ctx.beginPath(); ctx.arc(0,0,40,-Math.PI/2,Math.PI*1.48);
-  ctx.strokeStyle='rgba(180,100,255,0.8)'; ctx.lineWidth=6; ctx.lineCap='round'; ctx.stroke();
-  ctx.fillStyle='rgba(180,100,255,0.7)'; ctx.font='bold 11px serif';
-  ctx.textAlign='center'; ctx.fillText('99%',0,5); ctx.textAlign='left';
-  ctx.restore();
-
-  ctx.font='8px DM Mono,monospace'; ctx.fillStyle='rgba(180,100,255,0.35)';
-  ctx.fillText('DEEP LEARNING  ·  CLINICAL PRECISION', 12, h-12);
-}
-
-export function drawPanicPub(ctx, w, h) {
-  const bg=ctx.createLinearGradient(0,0,w,h);
-  bg.addColorStop(0,'#10060f'); bg.addColorStop(1,'#18080e');
-  ctx.fillStyle=bg; ctx.fillRect(0,0,w,h);
-
-  // Heart rate / panic signal
-  const ecg=[0,0,1,-1,1,0,0,0,1,22,-14,10,-6,3,1,0,0,0,2,4,3,1,0];
-  const reps=3;
-  ctx.beginPath();
-  let xi=0;
-  for(let r=0;r<reps;r++){
-    ecg.forEach(v=>{
-      const x=(xi/(ecg.length*reps))*w;
-      const y=h*0.45-v*5;
-      xi===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
-      xi++;
-    });
-  }
-  ctx.strokeStyle='rgba(220,80,150,0.85)'; ctx.lineWidth=2.2; ctx.stroke();
-
-  // Glow
-  ctx.beginPath(); xi=0;
-  for(let r=0;r<reps;r++){
-    ecg.forEach(v=>{
-      const x=(xi/(ecg.length*reps))*w;
-      const y=h*0.45-v*5;
-      xi===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
-      xi++;
-    });
-  }
-  ctx.strokeStyle='rgba(220,80,150,0.15)'; ctx.lineWidth=12; ctx.stroke();
-
-  // Prediction window
-  const wx=w*0.62;
-  ctx.fillStyle='rgba(220,80,150,0.07)';
-  ctx.fillRect(wx,0,w-wx,h);
-  ctx.strokeStyle='rgba(220,80,150,0.4)'; ctx.lineWidth=1;
-  ctx.setLineDash([3,3]);
-  ctx.beginPath(); ctx.moveTo(wx,0); ctx.lineTo(wx,h); ctx.stroke();
-  ctx.setLineDash([]);
-  ctx.font='8px DM Mono,monospace';
-  ctx.fillStyle='rgba(220,80,150,0.7)';
-  ctx.fillText('PREDICTED', wx+6, 16);
-
-  ctx.font='8px DM Mono,monospace'; ctx.fillStyle='rgba(220,80,150,0.35)';
-  ctx.fillText('PATTERN ANALYSIS  ·  CRISIS PREVENTION', 12, h-12);
-}
-
-export function drawChem(ctx, w, h) {
-  const bg=ctx.createLinearGradient(0,0,w,h);
-  bg.addColorStop(0,'#0d0a03'); bg.addColorStop(1,'#120e04');
-  ctx.fillStyle=bg; ctx.fillRect(0,0,w,h);
-
-  // Molecular structure
-  const atoms=[
-    {x:w*0.3,y:h*0.4,el:'C',col:'rgba(200,160,40,0.9)'},
-    {x:w*0.48,y:h*0.28,el:'N',col:'rgba(80,160,255,0.9)'},
-    {x:w*0.48,y:h*0.55,el:'O',col:'rgba(255,80,80,0.9)'},
-    {x:w*0.65,y:h*0.4,el:'C',col:'rgba(200,160,40,0.9)'},
-    {x:w*0.2,y:h*0.55,el:'H',col:'rgba(200,200,200,0.6)'},
-    {x:w*0.2,y:h*0.28,el:'H',col:'rgba(200,200,200,0.6)'},
-    {x:w*0.78,y:h*0.28,el:'Cl',col:'rgba(80,220,80,0.9)'},
-    {x:w*0.78,y:h*0.55,el:'F',col:'rgba(200,100,255,0.9)'},
-  ];
-  const bonds=[[0,1],[0,2],[0,3],[0,4],[0,5],[3,6],[3,7],[1,3]];
-  bonds.forEach(([a,b])=>{
-    ctx.beginPath(); ctx.moveTo(atoms[a].x,atoms[a].y); ctx.lineTo(atoms[b].x,atoms[b].y);
-    ctx.strokeStyle='rgba(194,138,26,0.3)'; ctx.lineWidth=2; ctx.stroke();
-  });
-  atoms.forEach(a=>{
-    ctx.beginPath(); ctx.arc(a.x,a.y,11,0,Math.PI*2);
-    ctx.fillStyle=a.col.replace('0.9','0.15').replace('0.6','0.08'); ctx.fill();
-    ctx.strokeStyle=a.col; ctx.lineWidth=1.5; ctx.stroke();
-    ctx.font='bold 8px DM Mono,monospace';
-    ctx.fillStyle=a.col; ctx.textAlign='center';
-    ctx.fillText(a.el,a.x,a.y+3); ctx.textAlign='left';
-  });
-
-  // Toxicity gauge — 100%
-  ctx.save(); ctx.translate(w*0.88,h*0.45);
-  ctx.beginPath(); ctx.arc(0,0,30,0,Math.PI*2);
-  ctx.strokeStyle='rgba(194,138,26,0.1)'; ctx.lineWidth=6; ctx.stroke();
-  ctx.beginPath(); ctx.arc(0,0,30,-Math.PI/2,Math.PI*1.5);
-  ctx.strokeStyle='rgba(194,138,26,0.9)'; ctx.lineWidth=6; ctx.lineCap='round'; ctx.stroke();
-  ctx.fillStyle='rgba(194,138,26,0.9)'; ctx.font='bold 9px serif';
-  ctx.textAlign='center'; ctx.fillText('100%',0,4); ctx.textAlign='left';
-  ctx.restore();
-
-  ctx.font='8px DM Mono,monospace'; ctx.fillStyle='rgba(194,138,26,0.4)';
-  ctx.fillText('TOXICITY PREDICTION  ·  REGULATORY AI', 12, h-12);
-}
-
 
 export function drawSXEchoLite(ctx, w, h) {
   // Dark bg with teal glow
@@ -431,7 +65,7 @@ export function drawSXEchoLite(ctx, w, h) {
 
 export function drawEdgeECG(ctx, w, h) {
   const bg = ctx.createLinearGradient(0,0,w,h);
-  bg.addColorStop(0,'#0a0205'); bg.addColorStop(1,'#100308');
+  bg.  addColorStop(0,'#0a0205'); bg.addColorStop(1,'#100308');
   ctx.fillStyle=bg; ctx.fillRect(0,0,w,h);
 
   // Grid
@@ -469,8 +103,7 @@ export function drawEdgeECG(ctx, w, h) {
   ctx.strokeStyle='rgba(255,79,107,0.2)'; ctx.lineWidth=8; ctx.stroke();
 
   // Pulse dot
-  const px=w*0.72, py=h*0.5-18*7;
-  ctx.beginPath(); ctx.arc(px,h*0.5,5,0,Math.PI*2);
+  ctx.beginPath(); ctx.arc(w*0.72,h*0.5,5,0,Math.PI*2);
   ctx.fillStyle='#ff4f6b'; ctx.fill();
 
   // Labels
@@ -649,7 +282,7 @@ export function drawSpectra(ctx, w, h) {
   for(let r=0;r<rows;r++){
     for(let c=0;c<cols;c++){
       const px=c*(w/cols), py=r*(h/rows);
-      const f=c/cols, t=r/rows;
+      const f=c/cols;
       // Create harmonic-like energy distribution
       const e=Math.exp(-Math.pow((f-0.3),2)*20)+
                Math.exp(-Math.pow((f-0.55),2)*30)*0.8+
@@ -758,7 +391,6 @@ export function drawSXEchoV3(ctx, w, h) {
     const x=w*0.43+i*(w*0.5/hops);
     const freq=Math.random();
     const y=h*(0.2+freq*0.6);
-    const prev=i>0?{x:w*0.43+(i-1)*(w*0.5/hops),y:h*(0.2+Math.random()*0.6)}:null;
 
     ctx.beginPath(); ctx.arc(x,y,4,0,Math.PI*2);
     ctx.fillStyle='rgba(107,79,255,0.9)'; ctx.fill();

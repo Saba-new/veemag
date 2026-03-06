@@ -11,10 +11,7 @@
 .about-container {
     max-width: 1280px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 24px;
-    align-items: stretch;
 }
 
 /* ========================================
@@ -255,10 +252,10 @@
 @media (max-width: 768px) {
     .about-section {
         padding: 80px 1.5rem;
+        
     }
 
     .about-container {
-        grid-template-columns: 1fr;
         gap: 20px;
     }
 

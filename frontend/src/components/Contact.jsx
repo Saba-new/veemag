@@ -155,7 +155,7 @@ const Contact = () => {
               </div>
               <h4 className="info-card-title">Stay for more updates</h4>
               <p className="info-card-text">
-                Thank you for your interest in VEEMAG R&D Ventures. We welcome inquiries, partnership proposals, and opportunities for collaboration. Feel free to reach out to us using the contact information provided below.
+                Thank you for your interest in VEEMAG. We welcome inquiries, partnership proposals, and opportunities for collaboration. Feel free to reach out to us using the contact information provided below.
               </p>
             </div>
 
