@@ -311,6 +311,18 @@
 
     .form-submit-btn {
         width: 100%;
+        min-height: 48px;
+        font-size: 1rem;
+    }
+
+    .form-input,
+    .form-textarea {
+        font-size: 16px;
+        min-height: 48px;
+    }
+
+    .form-textarea {
+        min-height: 120px;
     }
 }
 

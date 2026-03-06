@@ -602,6 +602,21 @@
 
     .position-title {
         font-size: 1.25rem;
+        line-height: 1.3;
+        word-wrap: break-word;
+    }
+
+    .position-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .apply-btn {
+        width: 100%;
+        justify-content: center;
+        min-height: 48px;
+        font-size: 1rem;
     }
 
     .open-application-card {
@@ -612,5 +627,8 @@
     .open-app-btn {
         padding: 14px 28px;
         font-size: 0.9375rem;
+        width: 100%;
+        min-height: 48px;
+        justify-content: center;
     }
 }
