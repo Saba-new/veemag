@@ -9,8 +9,8 @@ const Home = () => {
     <>
       <Hero />
       <FeaturesSection />
-      {/* TrustedBy - Shows partner logos. Add logos to public/logos/ or comment out this line */}
-      <TrustedBy />
+      {/* TrustedBy - Partner logos temporarily hidden until images are added to public/logos/ */}
+      {/* <TrustedBy /> */}
       <AILabSection />
       
       <AboutSection />

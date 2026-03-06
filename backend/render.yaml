@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: veemag-backend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DB_HOST
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: EMAIL_FROM
+        value: onboarding@resend.dev
+      - key: EMAIL_TO
+        value: veemagrnd06@gmail.com
+      - key: FRONTEND_URL
+        value: https://veemag-5nd61duza-saba-news-projects.vercel.app
+    healthCheckPath: /api/health
