@@ -9,6 +9,7 @@ const Home = () => {
     <>
       <Hero />
       <FeaturesSection />
+      {/* TrustedBy - Shows partner logos. Add logos to public/logos/ or comment out this line */}
       <TrustedBy />
       <AILabSection />
       

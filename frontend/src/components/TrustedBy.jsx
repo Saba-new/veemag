@@ -2,6 +2,7 @@ import './TrustedBy.css'
 
 const TrustedBy = () => {
   // Company logos - add your logo images to public/logos/ folder
+  // If logos are missing, company names will be displayed instead
   const companies = [
     { name: 'Ice River Springs', logo: '/logos/ice-river-springs.png' },
     { name: 'Ubisoft', logo: '/logos/ubisoft.png' },

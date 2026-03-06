@@ -46,6 +46,8 @@ const JobApplicationForm = ({ position, onClose, isOpen }) => {
     setIsSubmitting(true)
     setSubmitStatus(null)
 
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
+
     try {
       const formDataToSend = new FormData()
       formDataToSend.append('name', formData.name)
@@ -57,7 +59,7 @@ const JobApplicationForm = ({ position, onClose, isOpen }) => {
         formDataToSend.append('resume', resume)
       }
 
-      const response = await fetch('http://localhost:5000/api/careers/apply', {
+      const response = await fetch(`${API_URL}/api/careers/apply`, {
         method: 'POST',
         body: formDataToSend
       })

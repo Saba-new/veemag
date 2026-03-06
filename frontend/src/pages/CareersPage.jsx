@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import useScrollAnimation from '../hooks/useScrollAnimation'
 import JobApplicationForm from '../components/JobApplicationForm'
 import './CareersPage.css'
@@ -223,15 +222,15 @@ const CareersPage = () => {
                       <span className="meta-item">{position.type}</span>
                     </div>
                   </div>
-                  <Link to="/contact" className="apply-btn" onClick={(e) => {
-                    e.preventDefault()
-                    openApplicationModal(position.title)
-                  }}>
+                  <button 
+                    className="apply-btn" 
+                    onClick={() => openApplicationModal(position.title)}
+                  >
                     Apply Now
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                       <path d="M6 12L10 8L6 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
-                  </Link>
+                  </button>
                 </div>
                 <p className="position-description">{position.description}</p>
               </div>
