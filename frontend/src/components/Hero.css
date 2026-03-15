@@ -478,6 +478,14 @@
         width: 300px;
         height: 300px;
     }
+
+    .hero-image {
+        margin-top: 32px;
+    }
+
+    .hero-grid {
+        background-size: 30px 30px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -543,18 +551,22 @@
     .hero-btn-secondary {
         padding: 16px 28px;
         font-size: 14px;
+        min-height: 48px;
     }
-}
-
+    
     .hero-image {
-        margin-top: 40px;
+        margin-top: 24px;
     }
 
     .hero-image img {
         border-radius: 8px;
     }
 
-    .hero-grid {
-        background-size: 30px 30px;
+    .hero-orb-1,
+    .hero-orb-2,
+    .hero-orb-3 {
+        width: 220px;
+        height: 220px;
     }
+}
 

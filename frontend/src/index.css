@@ -69,6 +69,14 @@ body {
     overflow-x: hidden;
 }
 
+img,
+video,
+canvas,
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
 #root {
     min-height: 100vh;
 }
@@ -174,26 +182,11 @@ section {
     }
     
     /* Improve touch targets */
-    button, a, input, textarea, select {
-        min-height: 44px;
-    }
-}
-
-@media (max-width: 480px) {
-    :root {
-        --section-padding: 60px;
-    }
-    
-    .container {
-        padding: 0 1.5rem;
-    }
-    
-    /* Improve touch targets for mobile */
-    button, 
-    a.btn-primary, 
-    a.btn-secondary,
-    a.btn-outline,
-    input[type="submit"] {
+    button,
+    a,
+    input,
+    textarea,
+    select {
         min-height: 44px;
     }
 }
@@ -205,5 +198,13 @@ section {
     
     .container {
         padding: 0 1rem;
+    }
+
+    button,
+    a,
+    input,
+    textarea,
+    select {
+        min-height: 44px;
     }
 }

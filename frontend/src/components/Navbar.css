@@ -165,7 +165,9 @@
     background: none;
     border: none;
     cursor: pointer;
-    padding: 8px;
+    padding: 10px;
+    min-height: 44px;
+    min-width: 44px;
     z-index: 1001;
 }
 
@@ -330,6 +332,10 @@
     .nav-container {
         padding: 0 1.5rem;
     }
+
+    .mobile-menu {
+        padding: 1.25rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -339,5 +345,14 @@
     
     .logo-text {
         font-size: 20px;
+    }
+
+    .mobile-nav-link {
+        padding: 12px 14px;
+    }
+
+    .btn-secondary-mobile,
+    .btn-primary-mobile {
+        min-height: 48px;
     }
 }
