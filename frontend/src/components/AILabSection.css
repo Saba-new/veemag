@@ -451,12 +451,12 @@
     .impact-grid {
         grid-template-columns: 1fr;
     }
-}
 
     .user-message,
     .ai-message {
         max-width: 100%;
     }
+}
 
 @media (max-width: 480px) {
     .ailab-section {
